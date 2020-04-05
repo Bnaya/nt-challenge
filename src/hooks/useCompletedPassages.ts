@@ -26,7 +26,7 @@ function load() {
   return stored.completed;
 }
 
-export function usePassages() {
+export function useCompletedPassages() {
   const [completed, setCompleted] = useState<Completed>(load());
 
   function handleComplete(passage: string, checked: boolean) {

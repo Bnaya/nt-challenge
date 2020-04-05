@@ -1,10 +1,11 @@
 import React from "react";
 import { IonList, IonItem, IonLabel, IonCheckbox } from "@ionic/react";
-import { usePassages } from "../hooks/usePassages";
+import { useCompletedPassages } from "../hooks/useCompletedPassages";
+import { useTodaysPassages } from "../hooks/useTodaysPassages";
 
 export function ReadingList() {
-  const { completedPassages, handleComplete } = usePassages();
-  const passages = ["Jon 1", "Jon 3"];
+  const { completedPassages, handleComplete } = useCompletedPassages();
+  const passages = useTodaysPassages();
 
   return (
     <IonList>
