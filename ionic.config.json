@@ -1,0 +1,7 @@
+{
+  "name": "ntChallenge",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
