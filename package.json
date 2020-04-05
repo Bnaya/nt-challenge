@@ -1,6 +1,6 @@
 {
   "name": "nt-challenge",
-  "description": "New Testament Challenge!",
+  "description": "Read the New Testament in 90 days!",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
