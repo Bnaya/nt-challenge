@@ -4,29 +4,43 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
+  IonListHeader,
+  IonLabel,
 } from "@ionic/react";
 import React from "react";
-import { Hi } from "../components/ExploreContainer";
+import { ReadingList } from "../components/ReadingList";
 import "./Home.css";
 
-const Home: React.FC = () => {
+function getCurrentDate() {
+  return new Date().toLocaleDateString(undefined, {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+export function Home() {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Blank</IonTitle>
+          <IonTitle>NT Challenge</IonTitle>
         </IonToolbar>
       </IonHeader>
+
       <IonContent>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
+            <IonTitle size="large">NT Challenge</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer />
+
+        <IonListHeader>
+          <IonLabel>{getCurrentDate()}</IonLabel>
+        </IonListHeader>
+        <ReadingList />
       </IonContent>
     </IonPage>
   );
-};
-
-export default Home;
+}
