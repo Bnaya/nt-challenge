@@ -1,27 +1,48 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { StorageKey } from "../models/storage";
 
-type Passage = {
-  reference: string;
-  completed: boolean;
-};
+type Completed = Record<string, boolean>;
 
-export function usePassages() {
-  const [passages, setPassages] = useState<Passage[]>([
-    { reference: "John 1", completed: false },
-    { reference: "John 2", completed: false },
-    { reference: "John 3", completed: false },
-    { reference: "John 4", completed: false },
-    { reference: "John 5", completed: false },
-  ]);
+type Storage =
+  | { key: undefined }
+  | {
+      completed: Completed;
+      key: string;
+    };
 
-  function handleCompleteChange(index: number, checked: boolean) {
-    setPassages(
-      passages.map((passage, idx) => ({
-        ...passage,
-        completed: index === idx ? checked : passage.completed,
-      }))
-    );
+const getStorageKey = () => new Date().toISOString().split("T")[0];
+
+function load() {
+  const stored = JSON.parse(
+    localStorage.getItem(StorageKey.CompletedPassages) || "{}"
+  ) as Storage;
+
+  // If there is nothing stored or it is for a different day, don't return the
+  // stored passages.
+  if (!stored.key || stored.key !== getStorageKey()) {
+    return {};
   }
 
-  return { passages, handleCompleteChange };
+  return stored.completed;
+}
+
+export function usePassages() {
+  const [completed, setCompleted] = useState<Completed>(load());
+
+  function handleComplete(passage: string, checked: boolean) {
+    setCompleted({
+      ...completed,
+      [passage]: checked,
+    });
+  }
+
+  // Save changes to storage when the complete passages changes
+  useEffect(() => {
+    localStorage.setItem(
+      StorageKey.CompletedPassages,
+      JSON.stringify({ key: getStorageKey(), completed })
+    );
+  });
+
+  return { completedPassages: completed, handleComplete };
 }
