@@ -1,5 +1,6 @@
 {
-  "name": "ntChallenge",
+  "name": "nt-challenge",
+  "description": "New Testament Challenge!",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -46,6 +47,5 @@
   },
   "devDependencies": {
     "@capacitor/cli": "2.0.0"
-  },
-  "description": "An Ionic project"
+  }
 }
