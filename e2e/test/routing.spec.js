@@ -1,6 +1,3 @@
-/// <reference types="jest-playwright-preset" />
-/// <reference types="expect-playwright" />
-
 const { url } = require("../utils/url");
 
 describe("Routing", () => {
