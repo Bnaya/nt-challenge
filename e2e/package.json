@@ -1,0 +1,15 @@
+{
+  "name": "nt-challenge-e2e",
+  "version": "1.0.0",
+  "description": "NT Challenge end-to-end tests.",
+  "author": "Mark Skelton",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^25.2.7",
+    "jest-playwright-preset": "^0.1.1",
+    "playwright": "^0.12.1"
+  }
+}
