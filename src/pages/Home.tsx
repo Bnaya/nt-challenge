@@ -25,7 +25,7 @@ export function Home() {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>NT Challenge</IonTitle>
+          <IonTitle data-testid="title">NT Challenge</IonTitle>
         </IonToolbar>
       </IonHeader>
 
