@@ -13,7 +13,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run deploy
-      - uses: w9jds/firebase-action@1.3.0
+      - uses: w9jds/firebase-action@v1.3.0
         with:
           args: deploy --only hosting
         env:
