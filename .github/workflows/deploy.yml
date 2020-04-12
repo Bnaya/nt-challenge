@@ -12,7 +12,6 @@ jobs:
           node-version: "12"
       - run: npm ci
       - run: npm run build
-      - run: npm run deploy
       - uses: w9jds/firebase-action@v1.3.0
         with:
           args: deploy --only hosting
