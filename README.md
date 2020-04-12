@@ -1,11 +1,14 @@
 # NT Challenge
 
+![Deploy](https://github.com/mskelton/nt-challenge/workflows/Deploy/badge.svg)
+
 > Read the New Testament in 90 days!
 
-## Deploying
+## Starting the App
 
-The `deploy` script will run a production build and deploy the update to Firebase.
+To start the app, install the dependencies and run the development server.
 
 ```sh
-npm run deploy
+npm install
+npm start
 ```
