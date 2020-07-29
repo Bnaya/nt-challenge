@@ -1,5 +1,5 @@
+import { IonCheckbox, IonItem, IonList } from "@ionic/react";
 import React from "react";
-import { IonList, IonItem, IonLabel, IonCheckbox } from "@ionic/react";
 import { useCompletedPassages } from "../hooks/useCompletedPassages";
 import { useTodaysPassages } from "../hooks/useTodaysPassages";
 
@@ -14,11 +14,13 @@ export function ReadingList() {
 
         return (
           <IonItem key={passage}>
-            <IonLabel
-              style={{ textDecoration: completed ? "line-through" : undefined }}
+            <a
+              href={`https://www.esv.org/${passage.replace(/ /g, "+")}/`}
+              target="blank"
+              style={{ textDecoration: completed ? "line-through" : "none" }}
             >
               {passage}
-            </IonLabel>
+            </a>
 
             <IonCheckbox
               disabled={completed}
